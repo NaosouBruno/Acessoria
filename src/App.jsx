@@ -1,9 +1,9 @@
 import "./App.scss";
-
+import ButtonBurguer from "./components/ButtonBurguer";
 function App() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <ButtonBurguer />
     </div>
   );
 }
