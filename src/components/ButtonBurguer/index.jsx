@@ -3,33 +3,25 @@ import "./btnBurguer.scss";
 export default function ButtonBurguer() {
   const [active, setActive] = useState(false);
 
-  const changeActive = () => {
+  /*  const changeActive = () => {
     setActive(!active);
-  };
+  }; */
   return (
-    <section className="burguerContainer">
-      <div
-        className={active ? "icon iconActive" : "icon"}
-        onClick={changeActive}
-      >
-        <div className="burguer burguer__Icon"></div>
-      </div>
-      <nav
-        className={
-          active
-            ? "burguer__menu burguer__menu--Open "
-            : "burguer__menu burguer__menu--Close"
-        }
-      >
-        <div className="burguer__list">
-          <ul className="burguer__listItem">
-            <li>Home</li>
-            <li>Serviços</li>
-            <li>Sobre</li>
-            <li>Contato</li>
-          </ul>
+    <header>
+      <nav className="navContainer">
+        <ul className={`navContainer__items ${active && "open"}`}>
+          <li onClick={() => setActive(!active)}>Inicio</li>
+          <li onClick={() => setActive(!active)}>Sobre</li>
+          <li onClick={() => setActive(!active)}>Serviços</li>
+          <li onClick={() => setActive(!active)}>Contato</li>
+        </ul>
+        <div
+          className={`nav-toggle ${active && "open"}`}
+          onClick={() => setActive(!active)}
+        >
+          <div className="bar"></div>
         </div>
       </nav>
-    </section>
+    </header>
   );
 }

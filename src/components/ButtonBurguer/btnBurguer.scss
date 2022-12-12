@@ -1,79 +1,90 @@
-.burguerContainer {
-  position: relative;
-  min-height: 100vh;
-  max-width: 100vw;
-  width: 100vw;
+.navContainer {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(49, 33, 33);
 }
-.icon {
-  position: absolute;
-  width: 40px;
-  z-index: 4;
-  left: 1%;
-  width: fit-content;
-  height: 44px;
-  cursor: pointer;
-}
-.burguer {
-  top: 50%;
-  left: 10%;
-  width: 30px;
-  height: 6px;
-  background: #ff3300;
-  position: absolute;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: 0.5s;
-  &::before {
-    top: -12px;
-    content: "";
+.navContainer {
+  &__items {
+    list-style: none;
     position: absolute;
-    width: 37px;
-    height: 6px;
-    background: #ff3300;
-  }
-  &::after {
-    top: 12px;
-    content: "";
-    position: absolute;
-    width: 37px;
-    height: 6px;
-    background: #ff3300;
-  }
-  &__list {
+    top: 60px;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    left: 1%;
-    margin: 45px 0 0;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-  &__listItem {
-    list-style: none;
-    margin: 2px 0;
-    cursor: pointer;
-    &:hover {
-      font-weight: 800;
+    background: blue;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: all 0.45s;
+    @media screen {
+      @media (min-width: 700px) {
+        transform: translateX(0);
+        background: red;
+        flex-direction: row;
+        top: 0;
+        height: 60px;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    &.open {
+      z-index: 10;
+      transform: translateX(0);
     }
   }
 }
 
-.icon.iconActive {
-  .burguer {
-    background: transparent;
-    box-shadow: 0 2px 5px transparent;
-
-    &::after {
-      top: 0;
-      background: #fff;
-      transform: rotate(225deg);
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+.nav-toggle {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  @media screen {
+    @media (min-width: 700px) {
+      display: none;
     }
+  }
+
+  & > .bar {
+    position: relative;
+    width: 32px;
+    height: 2px;
+    background: lightcoral;
+    transition: all 0.45s ease-in-out;
     &::before {
-      top: 0;
-      background: #fff;
-      transform: rotate(135deg);
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+      width: 25px;
+      transform: translateY(-8px);
+      right: 0;
+    }
+    &::after {
+      width: 32px;
+      transform: translateY(8px);
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background: lightcoral;
+      border-radius: 2px;
+      transition: all 0.45s ease-in-out;
+    }
+    &.open {
+      & > .bar {
+        transform: translateX(-40px);
+        background: transparent;
+        &::before {
+          width: 32px;
+          transform: rotate(45deg) translate(26px, -26px);
+        }
+        &::after {
+          transform: rotate(-45deg) translate(26px, 26px);
+        }
+      }
     }
   }
 }
