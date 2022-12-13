@@ -1,9 +1,9 @@
 import "./App.scss";
-import ButtonBurguer from "./components/ButtonBurguer";
+import NabBurguer from "./components/NavBurguer";
 function App() {
   return (
     <div>
-      <ButtonBurguer />
+      <NabBurguer />
     </div>
   );
 }

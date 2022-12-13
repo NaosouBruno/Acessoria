@@ -1,0 +1,38 @@
+.btnNav {
+  &__itemLink {
+    color: rgb(151, 18, 18);
+    text-decoration: none;
+    &:link {
+      text-decoration: none;
+    }
+  }
+  &__itemName {
+    background-color: transparent;
+    margin: 15px;
+    /*  font-family: $fontLora;
+    font-weight: $fontWeightSub; */
+    letter-spacing: 2px;
+    position: relative;
+    opacity: 0.9;
+    border: none;
+
+    font-size: 1.2rem;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background-color: rgb(151, 18, 18);
+      transition: all 0.45s;
+    }
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}

@@ -1,19 +1,23 @@
 import { useState } from "react";
 import "./btnBurguer.scss";
-export default function ButtonBurguer() {
+import ButtonNavItem from "../ButtonNavItem";
+export default function NavBurguer() {
   const [active, setActive] = useState(false);
-
-  /*  const changeActive = () => {
-    setActive(!active);
-  }; */
   return (
     <header>
       <nav className="navContainer">
         <ul className={`navContainer__items ${active && "open"}`}>
-          <li onClick={() => setActive(!active)}>Inicio</li>
-          <li onClick={() => setActive(!active)}>Sobre</li>
-          <li onClick={() => setActive(!active)}>Serviços</li>
-          <li onClick={() => setActive(!active)}>Contato</li>
+          <li onClick={() => setActive(!active)}>
+            <ButtonNavItem name="Inicio" />
+          </li>
+          <li onClick={() => setActive(!active)}>
+            <ButtonNavItem name="Serviços" />
+          </li>
+
+          <li onClick={() => setActive(!active)}>
+            {" "}
+            <ButtonNavItem name="Contato" />
+          </li>
         </ul>
         <div
           className={`nav-toggle ${active && "open"}`}
